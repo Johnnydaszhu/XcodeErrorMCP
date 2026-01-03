@@ -1,0 +1,48 @@
+{
+  "name": "xcode-error-mcp",
+  "version": "0.1.0",
+  "description": "An MCP server that runs xcodebuild and returns only build errors (no warnings).",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Johnnydaszhu/XcodeErrorMCP.git"
+  },
+  "homepage": "https://github.com/Johnnydaszhu/XcodeErrorMCP#readme",
+  "bugs": {
+    "url": "https://github.com/Johnnydaszhu/XcodeErrorMCP/issues"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "xcode",
+    "xcodebuild",
+    "swift"
+  ],
+  "os": [
+    "darwin"
+  ],
+  "cpu": [
+    "arm64",
+    "x64"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "bin": {
+    "xcode-error-mcp": "bin/xcode-error-mcp"
+  },
+  "scripts": {
+    "build": "node scripts/build.js",
+    "postinstall": "node scripts/build.js"
+  },
+  "files": [
+    "AGENTS.md",
+    "LICENSE",
+    "README.md",
+    "Package.swift",
+    "Sources/",
+    "bin/",
+    "scripts/"
+  ]
+}
+

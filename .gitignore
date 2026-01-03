@@ -2,4 +2,8 @@
 .build
 .swiftpm
 DerivedData
-
+node_modules
+npm-debug.log*
+.npm-cache
+*.tgz
+.npm-test
