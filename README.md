@@ -25,18 +25,6 @@
 brew install --HEAD --formula https://raw.githubusercontent.com/Johnnydaszhu/XcodeErrorMCP/main/Formula/xcode-error-mcp.rb
 ```
 
-如果你后续维护一个 Homebrew tap（推荐），用户就可以用更标准的方式安装：
-
-```sh
-brew tap Johnnydaszhu/tap
-brew install xcode-error-mcp
-```
-
-## Build & Run（构建与运行）
-- Debug 运行：`swift run xcode-error-mcp`
-- Release 构建：`swift build -c release`（产物：`.build/release/xcode-error-mcp`）
-- 开启调试日志：`XCODE_ERROR_MCP_DEBUG=1 swift run xcode-error-mcp`（日志输出到 stderr）
-
 ## MCP Client Config（在客户端里配置）
 示例（Claude Desktop / Cursor 等类似配置结构）：
 
@@ -46,32 +34,6 @@ brew install xcode-error-mcp
     "xcode-error-mcp": {
       "command": "xcode-error-mcp",
       "args": []
-    }
-  }
-}
-```
-
-如果你是从源码开发/本地运行，也可以直接指向构建产物：
-
-```json
-{
-  "mcpServers": {
-    "xcode-error-mcp": {
-      "command": "/absolute/path/to/XcodeErrorMCP/.build/release/xcode-error-mcp",
-      "args": []
-    }
-  }
-}
-```
-
-开发期也可以直接跑 SwiftPM（启动更慢，但免手动编译）：
-
-```json
-{
-  "mcpServers": {
-    "xcode-error-mcp": {
-      "command": "swift",
-      "args": ["run", "--package-path", "/path/to/XcodeErrorMCP", "xcode-error-mcp"]
     }
   }
 }
@@ -88,7 +50,7 @@ brew install xcode-error-mcp
 - `workingDirectory`（用于自动发现工程/相对路径）
 - `codeSigningAllowed`（默认 `false`，会设置 `CODE_SIGNING_ALLOWED=NO`）
 
-对应环境变量（参数优先生效）：`XCODE_WORKSPACE`、`XCODE_PROJECT`、`XCODE_SCHEME`、`XCODE_CONFIGURATION`、`XCODE_DESTINATION`、`XCODE_SDK`、`XCODE_DERIVED_DATA_PATH`、`XCODE_RESULT_BUNDLE_PATH`、`XCODE_CLONED_SOURCE_PACKAGES_DIR_PATH`、`XCODE_WORKING_DIRECTORY`、`XCODE_CODE_SIGNING_ALLOWED`。
+也支持通过环境变量传参（参数优先生效），常用：`XCODE_SCHEME`、`XCODE_WORKSPACE`/`XCODE_PROJECT`、`XCODE_DESTINATION`、`XCODE_DERIVED_DATA_PATH`。
 
 ### `xcode_last_errors`
 从最新的 `.xcactivitylog` 中提取错误（无 warning）。参数：
