@@ -19,8 +19,6 @@
 - 验证：`xcode-error-mcp`（启动 MCP server，等待 stdin 的 JSON-RPC 消息）
 
 ## Install（Homebrew 安装）
-> 当前提供的是 `--HEAD` 版本（从 `main` 构建）。同样只支持 macOS，且需要 Xcode/Swift。
-
 ```sh
 brew install --HEAD --formula https://raw.githubusercontent.com/Johnnydaszhu/XcodeErrorMCP/main/Formula/xcode-error-mcp.rb
 ```
