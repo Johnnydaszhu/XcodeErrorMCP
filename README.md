@@ -15,12 +15,37 @@
 ## Install（NPM 安装）
 > 仅支持 macOS。安装时会通过 `swift build -c release` 从源码编译二进制（需要已安装 Xcode）。
 
-- 全局安装：`npm i -g xcode-error-mcp`
-- 验证：`xcode-error-mcp`（启动 MCP server，等待 stdin 的 JSON-RPC 消息）
+- 全局安装：`npm i -g xcodeerrormcp`
+- 验证：`xcodeerrormcp`（或 `xcode-error-mcp`；启动 MCP server，等待 stdin 的 JSON-RPC 消息）
+- 如果你看到 `E404 Not Found`（说明该包未发布到 npm），可用下面任意方式安装：
+  - 从源码目录：`npm i -g /path/to/XcodeErrorMCP`
+  - 从本地 tarball：`npm i -g /path/to/xcodeerrormcp-0.1.0.tgz`（可用 `npm pack` 生成）
+  - 从 GitHub：`npm i -g git+https://github.com/Johnnydaszhu/XcodeErrorMCP.git`
 
-## Install（Homebrew 安装）
-```sh
-brew install --HEAD --formula https://raw.githubusercontent.com/Johnnydaszhu/XcodeErrorMCP/main/Formula/xcode-error-mcp.rb
+## One-shot Prompt（复制给 AI 一次性完成安装/配置）
+把下面这一段原样复制给你的 AI（Cursor / Claude / ChatGPT 等），让它按步骤在你的机器上完成安装与 MCP 配置：
+
+```text
+你是我的 macOS 终端/配置助手。请帮我安装并配置一个 MCP server：xcodeerrormcp（XcodeErrorMCP）。
+
+要求：
+1) 检查环境：macOS 13+、Node.js >= 18、Xcode 可用（/usr/bin/xcodebuild），Swift 可用（swift --version）。
+2) 全局安装：npm i -g xcodeerrormcp（不要用 sudo）。
+3) 验证命令：xcodeerrormcp 能启动（它会等待 stdin 的 JSON-RPC 消息）。
+4) 帮我把 MCP 客户端配置里新增一个 server（配置文件路径请你告诉我，例如 Claude Desktop / Cursor），并插入下面这段配置：
+
+{
+  "mcpServers": {
+    "xcode-error-mcp": {
+      "command": "xcodeerrormcp",
+      "args": []
+    }
+  }
+}
+
+5) 给出一个最小可用的示例：如何设置 XCODE_SCHEME（必填）以及可选的 XCODE_WORKSPACE/XCODE_PROJECT、XCODE_DESTINATION、XCODE_DERIVED_DATA_PATH。
+
+遇到报错时：请直接解释原因并给出我可以复制粘贴的修复命令。
 ```
 
 ## MCP Client Config（在客户端里配置）
@@ -30,7 +55,7 @@ brew install --HEAD --formula https://raw.githubusercontent.com/Johnnydaszhu/Xco
 {
   "mcpServers": {
     "xcode-error-mcp": {
-      "command": "xcode-error-mcp",
+      "command": "xcodeerrormcp",
       "args": []
     }
   }

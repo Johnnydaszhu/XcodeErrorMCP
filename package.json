@@ -1,5 +1,5 @@
 {
-  "name": "xcode-error-mcp",
+  "name": "xcodeerrormcp",
   "version": "0.1.0",
   "description": "An MCP server that runs xcodebuild and returns only build errors (no warnings).",
   "license": "MIT",
@@ -29,7 +29,8 @@
     "node": ">=18"
   },
   "bin": {
-    "xcode-error-mcp": "bin/xcode-error-mcp"
+    "xcode-error-mcp": "bin/xcode-error-mcp",
+    "xcodeerrormcp": "bin/xcode-error-mcp"
   },
   "scripts": {
     "build": "node scripts/build.js",
@@ -45,4 +46,3 @@
     "scripts/"
   ]
 }
-
